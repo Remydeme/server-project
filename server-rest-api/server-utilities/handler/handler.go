@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"server-project/server-utilities/service"
+	"server-project/server-rest-api/server-utilities/service"
 
 	"log"
 

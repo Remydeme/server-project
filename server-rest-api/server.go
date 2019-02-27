@@ -3,13 +3,13 @@ package main
 // Copyrights All right reserved RÉMY DEME
 
 import (
-	"server-project/server-utilities/handler"
+	"server-project/server-rest-api/server-utilities/handler"
 
 	"github.com/kataras/iris"
 	"github.com/kataras/iris/middleware/logger"
 	"github.com/kataras/iris/middleware/recover"
 	//    "server-project/server-utilities/database"
-	"server-project/server-utilities/service"
+	"server-project/server-rest-api/server-utilities/service"
 
 	"github.com/dgrijalva/jwt-go"
 	jwtmiddleware "github.com/iris-contrib/middleware/jwt"
@@ -45,5 +45,5 @@ func main() {
 	app.Post("/login", handler.Login)
 	app.Get("/logout", handler.Logout)
 	app.Get("/delete", handler.Delete)
-	app.Run(iris.Addr(":443"))
+	app.Run(iris.Addr(":3000"))
 }

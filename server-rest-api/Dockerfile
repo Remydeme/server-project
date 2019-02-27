@@ -3,7 +3,7 @@ FROM golang:alpine
 MAINTAINER Rémy DEME <demeremy@gmail.com>
 
 
-WORKDIR $GOPATH/src/server-project
+WORKDIR $GOPATH/src/server
 
 # Install git.
 # Git is required for fetching the dependencies.
@@ -19,8 +19,8 @@ RUN go get "github.com/dgrijalva/jwt-go"
 RUN go get "github.com/iris-contrib/middleware/jwt"
 RUN go get "github.com/kataras/iris"   
 
-# Make port 80 available to the world outside this container
-EXPOSE 443
+# Make port 3000 available to the world outside this container
+EXPOSE 3000
 
 # Define environment variable
 ENV NAME World
