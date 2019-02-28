@@ -1,7 +1,7 @@
 version: "3"
 services:
   app-back:
-    image: falconr/goapp
+    image: falconr/back-app
     networks:
       - mongo-go
       - nginx-go

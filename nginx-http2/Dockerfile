@@ -1,4 +1,4 @@
-FROM alpine:edge
+FROM alpine
 RUN	set -x \
 	&& apk update \
 	&& apk upgrade \

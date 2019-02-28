@@ -3,16 +3,18 @@ FROM golang:alpine
 MAINTAINER Rémy DEME <demeremy@gmail.com>
 
 
-WORKDIR $GOPATH/src/server
+WORKDIR /go/src/
+
+RUN mkdir -p server-project/server-rest-api  
+
+WORKDIR /go/src/server-project/server-rest-api 
+# Copy the current directory contents into the container at /app
+COPY  . .
 
 # Install git.
 # Git is required for fetching the dependencies.
 RUN apk update && apk add --no-cache git
 
-# Copy the current directory contents into the container at /app
-COPY  . .
-
-ADD . .
 
 # Install any needed packages
 RUN go get "github.com/dgrijalva/jwt-go" 
