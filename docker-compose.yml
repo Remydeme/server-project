@@ -1,0 +1,56 @@
+version: "3.6"
+services:
+  servicego:
+    build: ./server-rest-api
+    #image: falconr/back-app
+    networks:
+      - mongo-go
+      - nginx-go
+    ports: 
+      - 3000:3000
+    depends_on:
+      - mongodb
+    #deploy:
+     # replicas: 1
+      #update_config:
+       ##delay: 10s
+      #restart_policy:
+       # condition: on-failure
+  nginx:
+    build: ./nginx-http2
+    #image: falconr/nginx-http2
+    networks:
+      - nginx-go
+    depends_on:
+      - servicego
+    ports:
+      - 8000:80
+      - 8001:443
+    command: [nginx-debug, '-g', 'daemon off;']
+    #deploy:
+     # replicas: 1
+      #update_config:
+       # parallelism: 2
+        #delay: 10s
+     # restart_policy:
+      #  condition: on-failure
+  mongodb:
+    image: mongo:3.6-jessie
+    command: --smallfiles
+    networks:
+      - mongo-go
+    ports:
+            - 27017:27017
+            - 28017:28017
+    #deploy:
+     # replicas: 1
+      #update_config:
+        #parallelism: 2
+       # delay: 10s
+      #estart_policy:
+       # condition: on-failure
+networks:
+  mongo-go:
+  nginx-go:
+volumes:
+  mongodb-data:

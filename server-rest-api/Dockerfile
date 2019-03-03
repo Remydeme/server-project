@@ -7,7 +7,9 @@ WORKDIR /go/src/
 
 RUN mkdir -p server-project/server-rest-api  
 
-WORKDIR /go/src/server-project/server-rest-api 
+WORKDIR server-project/server-rest-api 
+
+
 # Copy the current directory contents into the container at /app
 COPY  . .
 
@@ -28,8 +30,8 @@ EXPOSE 3000
 ENV NAME World
 
 # Set proxy server, replace host:port with values for your servers
-ENV http_proxy host:port
-ENV https_proxy host:port
+ENV http_proxy http://127.0.0.1:3000
+ENV https_proxy http://127.0.0.1:3001
 
 
 # Run app.py when the container launches
