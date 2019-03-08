@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"os"
 	"server-project/server-rest-api/server-utilities/service"
 
 	"log"
@@ -14,11 +15,14 @@ Infos : This function is used for the JWT logic
 it init a session on the user login
 */
 func Set(ctx iris.Context) {
+	name, err := os.Hostname()
 	claims, err := service.GetClaims(&ctx)
 	if claims == nil {
 		log.Println(err)
 	}
-	ctx.JSON(claims)
+	response := make(map[string]string)
+	response["host"] = name
+	ctx.JSON(response)
 }
 
 //Method : Get
@@ -38,9 +42,17 @@ func Logout(ctx iris.Context) {
 
 /*Login : Post
 Repsonse : 200 status code
+Header : {
+	Content-Type: apllication/json,
+}
+body: {
+		"username" : "yourusername",
+		"password" : "yourpassword",
+     }
 Infos : This function start sign in the user and init a session
 */
 func Login(ctx iris.Context) {
+	ctx.ContentType("application/json")
 	response, err := service.Login(&ctx)
 	if response == nil {
 		log.Println(err)

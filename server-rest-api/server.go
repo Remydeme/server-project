@@ -21,7 +21,11 @@ func main() {
 
 	app := iris.New()
 	//    defer database.DB.Close()
-	//Middleware for JWt
+
+	/*
+		Middleware for JWt
+		get the json web token from the header and check if the token exists and his always valid
+	*/
 	var jwtHandler = jwtmiddleware.New(jwtmiddleware.Config{
 		ValidationKeyGetter: func(token *jwt.Token) (interface{}, error) {
 			return service.SignKey, nil
@@ -34,16 +38,19 @@ func main() {
 	// and log the requests to the terminal.
 	app.Use(recover.New())
 	app.Use(logger.New())
+
 	//app.Use(jwtHandler.Serve)
 	// error handling
 	app.OnErrorCode(iris.StatusNotFound, handler.NotFound)
 	app.OnErrorCode(iris.StatusInternalServerError, handler.InternalServerError)
 
-	// Method Get
-	// info: Use to initialise a session and get a token
+	// Set our server router
 	app.Get("/set", jwtHandler.Serve, handler.Set)
 	app.Post("/login", handler.Login)
 	app.Get("/logout", handler.Logout)
 	app.Get("/delete", handler.Delete)
+	app.Get("/", handler.Index)
+
+	//App is running on the port 3000
 	app.Run(iris.Addr(":3000"))
 }

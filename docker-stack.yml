@@ -1,7 +1,7 @@
-version: "3"
+version: "3.6"
 services:
-  app-back:
-    image: falconr/back-app
+  servicego:
+    image: falconr/server-application
     networks:
       - mongo-go
       - nginx-go
@@ -10,23 +10,21 @@ services:
     depends_on:
       - mongodb
     deploy:
-      replicas: 1
+      replicas: 3
       update_config:
-        parallelism: 2
-        delay: 10s
+       delay: 10s
       restart_policy:
         condition: on-failure
   nginx:
     image: falconr/nginx-http2
-    volumes: 
-            - /home/vrh/docker/myrepo/stack-mongo-golang-vuejs-nginx/nginx-http2/conf/:/etc/nginx/conf.d/
-    ports:
-            - 80:80
-            - 443:443
-    networks: 
-            - nginx-go
+    networks:
+      - nginx-go
     depends_on:
-      - app-back
+      - servicego
+    ports:
+      - 8000:80
+      - 8001:443
+    command: [nginx-debug, '-g', 'daemon off;']
     deploy:
       replicas: 1
       update_config:
@@ -35,11 +33,12 @@ services:
       restart_policy:
         condition: on-failure
   mongodb:
-    image: falconr/mongodb
-    volumes:
-            - mongodb-data:/data/db
+    image: mongo:3.6-jessie
+    command: --smallfiles
     networks:
       - mongo-go
+    volumes:
+      - "mongodb-data:/data"
     ports:
             - 27017:27017
             - 28017:28017
@@ -50,8 +49,21 @@ services:
         delay: 10s
       restart_policy:
         condition: on-failure
+  visualizer:
+    image: dockersamples/visualizer:stable
+    ports:
+      - "8002:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+    networks:
+      - mongo-go
+      - nginx-go
 networks:
   mongo-go:
   nginx-go:
 volumes:
   mongodb-data:
+    driver: local

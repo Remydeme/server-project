@@ -1,0 +1,36 @@
+
+#It's what we want
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongo-pv
+
+spec:
+  storageClassName: local-storage-mongo
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+
+
+---
+# And how we want it
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: local-storage
+spec:
+  #To bind the Perssistent volume claim with the persistent volume: Our persistent volume stisfy the resource request of the claim
+  storageClassName: local-storage-mongo
+  # how much storage 
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  # now we specify the type of volume, it can be AEBS, Azure drive, HostPath
+  hostPath:
+    path: "/mnt/persistent/mongodata"
+    type: DirectoryOrCreate
+
