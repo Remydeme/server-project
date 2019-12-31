@@ -6,7 +6,7 @@
 ############################################################
 
 # Set the base image to Ubuntu
-FROM ubuntu
+FROM alpine
 
 # File Author / Maintainer
 MAINTAINER DEME Rémy <demeremy@gmail.com>
