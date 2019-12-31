@@ -1,0 +1,35 @@
+2019-09-01 15:08:40.123 CEST [23496] LOG:  could not bind IPv6 address "::1": Address already in use
+2019-09-01 15:08:40.123 CEST [23496] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2019-09-01 15:08:40.123 CEST [23496] LOG:  could not bind IPv4 address "127.0.0.1": Address already in use
+2019-09-01 15:08:40.123 CEST [23496] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2019-09-01 15:08:40.123 CEST [23496] WARNING:  could not create listen socket for "localhost"
+2019-09-01 15:08:40.123 CEST [23496] FATAL:  could not create any TCP/IP sockets
+2019-09-01 15:08:40.124 CEST [23496] LOG:  database system is shut down
+2019-09-01 15:08:45.762 CEST [23510] LOG:  could not bind IPv6 address "::1": Address already in use
+2019-09-01 15:08:45.762 CEST [23510] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2019-09-01 15:08:45.762 CEST [23510] LOG:  could not bind IPv4 address "127.0.0.1": Address already in use
+2019-09-01 15:08:45.762 CEST [23510] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2019-09-01 15:08:45.762 CEST [23510] WARNING:  could not create listen socket for "localhost"
+2019-09-01 15:08:45.762 CEST [23510] FATAL:  could not create any TCP/IP sockets
+2019-09-01 15:08:45.762 CEST [23510] LOG:  database system is shut down
+2019-09-01 15:10:25.246 CEST [23641] LOG:  listening on IPv6 address "::1", port 5432
+2019-09-01 15:10:25.246 CEST [23641] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-09-01 15:10:25.247 CEST [23641] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2019-09-01 15:10:25.281 CEST [23642] LOG:  database system was shut down at 2019-09-01 15:08:17 CEST
+2019-09-01 15:10:25.300 CEST [23641] LOG:  database system is ready to accept connections
+2019-09-01 15:10:59.689 CEST [23681] FATAL:  database "remy.d.w" does not exist
+2019-09-01 15:11:24.072 CEST [23724] FATAL:  database "remy.d.w" does not exist
+2019-09-01 15:11:58.198 CEST [23742] ERROR:  syntax error at or near ";" at character 15
+2019-09-01 15:11:58.198 CEST [23742] STATEMENT:  select * from ;
+2019-09-01 15:12:05.013 CEST [23742] ERROR:  relation "joy" does not exist at character 15
+2019-09-01 15:12:05.013 CEST [23742] STATEMENT:  select * from joy;
+2019-09-01 15:14:49.513 CEST [23831] FATAL:  database "remy.d.w" does not exist
+2019-09-01 15:15:02.254 CEST [23848] FATAL:  database "remy.d.w" does not exist
+2019-09-01 15:15:10.620 CEST [23864] FATAL:  database "remy.d.w" does not exist
+2019-09-01 15:15:17.317 CEST [23878] FATAL:  database "remy.d.w" does not exist
+2019-09-01 15:15:48.419 CEST [23927] FATAL:  role "root" does not exist
+2019-09-01 15:16:00.190 CEST [23946] FATAL:  database "remy.d.w" does not exist
+2019-09-01 16:56:57.001 CEST [23641] LOG:  received smart shutdown request
+2019-09-01 16:56:57.002 CEST [23641] LOG:  background worker "logical replication launcher" (PID 23648) exited with exit code 1
+2019-09-01 16:56:57.002 CEST [23643] LOG:  shutting down
+2019-09-01 16:56:57.011 CEST [23641] LOG:  database system is shut down

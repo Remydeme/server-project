@@ -13,7 +13,7 @@ spec:
     ports:
     # specify the type of protocol we are using 
       - name: http
-        port: 3000
+        port: 8080
     type: ClusterIP
 
 
@@ -37,7 +37,7 @@ spec:
     ports:
     - name: http
       port: 80
-      nodePort: 30080
+      nodePort: 30080   # expose port 3008à to the outside world 
 
     type: NodePort
 
@@ -53,7 +53,7 @@ metadata:
 spec:
 
     selector:
-      app: selector
+      app: mongodb
     
     ports:
     - name: htpp

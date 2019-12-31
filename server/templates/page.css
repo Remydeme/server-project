@@ -1,0 +1,447 @@
+
+    /* Partie concernant la page en général */
+
+
+
+body
+{
+    background: url('images/wallpaper.jpg');
+    font-family: 'Trebuchet MS', Arial, sans-serif;  /*permet de définir une liste, ordonnée par priorité, de polices à utiliser*/
+    color: #181818;
+}
+
+#bloc_page
+{
+    width: 900px;
+    margin: auto;
+}
+
+section h1, footer h1, nav a
+{
+    font-family: 'Trebuchet MS', Arial, serif;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+
+
+
+
+	/* Partie concernant le header */
+
+
+header
+{
+    background: url('images/separateur.png') repeat-x bottom;
+    display: flex;  /*Par défaut les blocs se placent les uns en-dessous des autres donc ceci les place côte à côte*/
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+
+#titre_principal
+{
+    display: flex;
+    flex-direction: column;  /*de haut en bas*/
+}
+
+#logo
+{
+    display: flex;
+    flex-direction: row;  /*même direction que celle du texte*/
+    align-items: baseline;
+}
+
+#logo img
+{
+    width: 96px;
+    height: 96px;
+}
+
+
+header h1
+{
+    font-family: 'MS', serif;
+    font-size: 2.5em;  /* permet de définir la taille de fonte utilisée pour le texte*/
+    font-weight: normal;  /*permet de définir la graisse utilisée pour le texte*/
+    margin: 0 0 0 10px;  /*permet de définir la taille des marges sur les quatres côtés de l'élément*/
+}
+
+header h2
+{
+    font-family: 'MS', serif;
+    font-size: 1.1em;
+    margin-top: 0px;
+    font-weight: normal;
+}
+
+
+
+	/* Partie concernant la navigation */
+
+nav ul
+{
+    list-style-type: none;  /*permet de définir l'apparence d'un élément de liste*/
+    display: flex;
+}
+
+nav li
+{
+    margin-right: 15px;
+}
+
+nav a
+{
+    font-size: 1.3em;
+    color: #181818;
+    padding: 0 5px;  /*permet de définir les différents écarts de remplissage d'un élément, sur l'ensemble de ses côtés */
+    padding-bottom: 3px;
+    text-decoration: none;
+}
+
+nav a:hover  /*permet de spécifier l'apparence d'un élément au moment où l'utilisateur le survole avec le pointeur, sans nécessairement l'activer*/
+{
+    color: #760001;
+    border-bottom: 3px solid #760001;
+}
+
+
+
+	
+	/* Partie concernant la bannière */
+
+#banniere_image
+{
+    margin-top: 15px;
+    height: 200px;
+    border-radius: 5px;
+    background: url('images/voiture2.png') no-repeat;
+    position: relative;
+    box-shadow: 0px 4px 4px #1c1a19;
+    margin-bottom: 25px;
+}
+
+#banniere_description
+{
+    position: absolute;
+    bottom: 0;
+    border-radius: 0px 0px 5px 5px;
+    width: 99.5%;
+    height: 33px;
+    padding-top: 15px;
+    padding-left: 4px;
+    background-color: rgba(24,24,24,0.8);
+    color: white;
+    font-size: 0.8em;
+    
+}
+
+.bouton_rouge  /*représente le bouton rouge sur la bannière 'Voir les modèles'*/
+{
+    height: 25px;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    background: url('images/fond_degraderouge.png') repeat-x;
+    border: 1px solid #760001;
+    border-radius: 5px;
+    font-size: 1.2em;
+    text-align: center;
+    padding: 3px 8px 0px 8px;
+    color: white;
+    text-decoration: none;
+}
+
+.bouton_rouge img
+{
+    border: 0;
+}
+
+
+	
+	/* Partie concernant le corps */
+
+section
+{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+article, aside
+{
+    text-align: justify;
+}
+
+article
+{
+    margin-right: 20px;
+    flex: 3;
+}
+
+.ico_categorie  /*représente la partie roue et 'présentation de notre dernier modèle'*/
+{
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+article p
+{
+    font-size: 0.8em;
+}
+
+aside
+{
+    flex: 1.2;
+    position: relative;
+    background-color: #706b64;
+    box-shadow: 0px 2px 5px #1c1a19;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    font-size: 0.9em;
+}
+
+#fleche_bulle  /*représente la flèche partant du 'aside'*/
+{
+    position: absolute;
+    top: 100px;
+    left: -12px;
+}
+
+#photo_nous  /*photo du logo sur le 'aside'*/
+{
+    text-align: center;
+}
+
+#photo_nous img
+{
+    border: 1px solid #181818;
+}
+
+aside img
+{
+    margin-right: 5px;
+}
+
+
+	
+	/* Partie concernant le footer */
+
+footer  /*représente la bande noir ainsi que la flèche rouge dans le 'footer'*/
+{
+    display: flex;
+    background:  url('images/ico_top.png') no-repeat top center, url('images/separateur.png') repeat-x top, url('images/ombre.png') repeat-x top;
+    padding-top: 25px;
+}
+
+footer p, footer ul
+{
+    font-size: 0.8em;
+}
+
+footer h1
+{
+    font-size: 1.1em;
+}
+
+
+#actu
+{
+    width: 28%;
+}
+
+#nos_croquis
+{
+    width: 35%;
+}
+
+#nos_partenaires
+{
+    width: 31%;
+}
+
+#nos_croquis img
+{
+    border: 1px solid #181818;
+    margin-right: 2px;
+    width: 66.6px;
+    height: 40px;
+}
+
+#nos_croquis2 img
+{
+    border: 1px solid #181818;
+    width:400px;
+    height:400px;
+    margin:auto;
+    padding-top:20px;
+    padding-button:200px;
+}
+
+#listes_partenaires
+{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0;
+}
+
+#nos_partenaires ul
+{
+    list-style-image: url('images/ico_liensexterne.png');
+    padding-left: 2px;
+}
+
+#nos_partenaires a
+{
+    text-decoration: none;
+    color: #760001;
+}
+
+
+	/*Partie concernant nos modèles*/
+
+    
+#corps2
+{
+    background: url('images/wallpaper.jpg');
+        width:948px;
+    height:1800px;
+    margin:auto;
+    padding-top:20px;
+    padding-button:200px;
+
+    
+}
+	/*aston martin*/
+#astonmartin
+{
+	background: url('images/wallpaper.jpg');
+        width:948px;
+	height:3150px;
+	margin:auto;
+	padding-top:20px;
+	padding-button:200px;
+}
+
+
+        /*aston martin2*/
+#astonmartin2
+{
+	background: url('images/wallpaper.jpg');
+        width:948px;
+	height:3550px;
+	margin:auto;
+	padding-top:20px;
+	padding-button:200px;
+}
+
+        /*Audi*/
+#audi
+{
+    background: url('images/wallpaper.jpg');
+        width:948px;
+    height:1800px;
+    margin:auto;
+    padding-top:20px;
+    padding-button:200px;
+}
+
+
+
+       /*AudiR8coupé*/
+#audicoupe
+{
+    background: url('images/wallpaper.jpg');
+        width:948px;
+    height:2800px;
+    margin:auto;
+    padding-top:20px;
+    padding-button:200px;
+}
+
+       /*Veyron*/
+#veyron
+{
+    background: url('images/wallpaper.jpg');
+        width:948px;
+    height:2850px;
+    margin:auto;
+    padding-top:20px;
+    padding-button:200px;
+}
+
+      /*Maserati*/
+#maserati
+{
+    background: url('images/wallpaper.jpg');
+        width:948px;
+    height:1800px;
+    margin:auto;
+    padding-top:20px;
+    padding-button:200px;
+}
+      /*GranTurismo*/
+#gt
+{
+    background: url('images/wallpaper.jpg');
+        width:948px;
+    height:2750px;
+    margin:auto;
+    padding-top:20px;
+    padding-button:200px;
+}
+
+/*GranTurismo*/
+#gc
+{
+    background: url('images/wallpaper.jpg');
+        width:948px;
+    height:2850px;
+    margin:auto;
+    padding-top:20px;
+    padding-button:200px;
+}
+
+/*Cayenne*/
+#cayenne
+{
+    background: url('images/wallpaper.jpg');
+        width:948px;
+    height:3200px;
+    margin:auto;
+    padding-top:20px;
+    padding-button:200px;
+}
+
+/*Aventador*/
+#aventador
+{
+    background: url('images/wallpaper.jpg');
+        width:948px;
+    height:3050px;
+    margin:auto;
+    padding-top:20px;
+    padding-button:200px;
+}
+
+/*Huracan*/
+#huracan
+{
+    background: url('images/wallpaper.jpg');
+        width:948px;
+    height:3100px;
+    margin:auto;
+    padding-top:20px;
+    padding-button:200px;
+}
+
+/*Connexion*/
+.bouton{
+    margin-left: 300px;
+}
+
+#connect
+{
+    margin:auto;
+}
+

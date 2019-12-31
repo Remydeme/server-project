@@ -1,12 +1,12 @@
 version: "3.6"
 services:
   servicego:
-    build: ./server-rest-api
+    build: ./server/
     networks:
       - mongo-go
       - nginx-go
     ports: 
-      - 3000:3000
+      - 8080:8080
     depends_on:
       - mongodb
   
@@ -23,11 +23,12 @@ services:
   mongodb:
     image: mongo:3.6-jessie
     command: --smallfiles
+    volumes:
+      - "mongodb-data:/data/db"
     networks:
       - mongo-go
     ports:
             - 27017:27017
-            - 28017:28017
 networks:
   mongo-go:
   nginx-go:
