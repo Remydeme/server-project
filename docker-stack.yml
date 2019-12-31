@@ -1,12 +1,12 @@
 version: "3.6"
 services:
   servicego:
-    image: falconr/server-application
+    image: falconr/user-microservice
     networks:
       - mongo-go
       - nginx-go
     ports: 
-      - 3000:3000
+      - 8080:8080
     depends_on:
       - mongodb
     deploy:
