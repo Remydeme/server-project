@@ -1,9 +1,7 @@
-# server-project
+# Microservices Project
 
-############################################################
 # Dockerfile to build Nginx Installed Containers
-# Based on Ubuntu
-############################################################
+## Based on Ubuntu
 
 ## Set the base image to Ubuntu
 FROM alpine
