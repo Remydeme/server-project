@@ -5,40 +5,40 @@
 # Based on Ubuntu
 ############################################################
 
-# Set the base image to Ubuntu
+## Set the base image to Ubuntu
 FROM alpine
 
-# File Author / Maintainer
+## File Author / Maintainer
 MAINTAINER DEME Rémy <demeremy@gmail.com>
 
-# Install Nginx
+## Install Nginx
 
-# Add application repository URL to the default sources
+## Add application repository URL to the default sources
 #RUN echo "deb http://archive.ubuntu.com/ubuntu/ raring main universe" >> /etc/apt/sources.list
 
 
-# Update the repository
+## Update the repository
 RUN apt-get update
 
-# Install necessary tools
+## Install necessary tools
 RUN apt-get install -y nano wget dialog net-tools
 
-# Download and Install Nginx
+## Download and Install Nginx
 RUN apt-get install -y nginx  
 
-# Remove the default Nginx configuration file
+## Remove the default Nginx configuration file
 RUN rm -v /etc/nginx/nginx.conf
 
-# Copy a configuration file from the current directory
+## Copy a configuration file from the current directory
 ADD nginx.conf /etc/nginx/
 
-# Append "daemon off;" to the beginning of the configuration
+## Append "daemon off;" to the beginning of the configuration
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 
-# Expose ports
+## Expose ports
 EXPOSE 80
 
-# Set the default command to execute
-# when creating a new container
+## Set the default command to execute
+### when creating a new container
 CMD service nginx start
 applications Services 
