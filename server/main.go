@@ -52,6 +52,9 @@ func main() {
 	r.Handle("/user/add/", authentifiedMiddlewares.ThenFunc(api.CreateUser)).
 		Methods("POST")
 
+	r.Handle("/user/find/", authentifiedMiddlewares.ThenFunc(api.CreateUser)).
+		Methods("GET")
+
 	r.Handle("/user/delete/", authentifiedMiddlewares.ThenFunc(api.DeleteUser)).
 		Methods("PUT")
 

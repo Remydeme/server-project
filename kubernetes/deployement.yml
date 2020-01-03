@@ -15,7 +15,7 @@ spec:
   spec:
    containers:
    - name: servicego
-     image: falconr/user-microservice
+     image: falconr/user-microservice:latest
 
 
 
@@ -61,13 +61,19 @@ spec:
       image: mongo:3.6-jessie
      # we want to persist the database storage on the disk by mounting the /data/db file on our local disk 
       volumeMounts:
-      - name: mongodb-persistent-storage
-        mountPath: /data/db
-    volumes: # the volume describtion on our local disk 
-    - name: mongodb-persistent-storage
+          - mountPath: /data/db
+            name: mongodb-persistent-storage
+      #we want to store the data locally on the host machine 
+    volumes:
+        - name: mongodb-persistent-storage
+          hostPath:
+              path: /mnt/some/directory/structure  # where we want to store the data on our machine. This directory must have been created before.  
+              type: DirectoryOrCreate
+        #volumes: # the volume describtion on our local disk 
+        # - name: mongodb-persistent-storage
     # pointing on the describtion of the volume 
-      persistentVolumeClaim:
-         claimName: mongo-pv
+    #persistentVolumeClaim:
+    #    claimName: mongo-pv
 
 
 

@@ -1,6 +1,7 @@
 package middleware
 
 import (
+	"github.com/Remydeme/esme-devops-projects-microservices/config"
 	"github.com/auth0/go-jwt-middleware"
 	"github.com/dgrijalva/jwt-go"
 	"net/http"
@@ -10,7 +11,7 @@ import (
 func JWTMiddleware(next http.Handler) http.Handler {
 	jwtMiddleware := jwtmiddleware.New(jwtmiddleware.Options{
 		ValidationKeyGetter: func(token *jwt.Token) (interface{}, error) {
-			return []byte("My Secret"), nil
+			return []byte(config.Main.JWT.Secret), nil
 		},
 		// When set, the middleware verifies that tokens are signed with the specific signing algorithm
 		// If the signing method is not constant the ValidationKeyGetter callback can be used to implement additional checks

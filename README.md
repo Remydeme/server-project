@@ -8,6 +8,18 @@
 * VirtualBox
 
 
+## USE 
+in kubernetes directory 
+run : 
+
+- chmod 755 run.sh && ./run.sh # this command will install all the dependency 
+
+- in the terminal : minikube ip  # get the cluster ip adress on your machine 
+
+- go to your browser and run ip:30080/ping
+
+if you get pong as answer this mean that your cluster is running.
+
 ## Launsh 
 
 Afin de lancer le serveur il faut :
