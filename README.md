@@ -20,6 +20,82 @@ run :
 
 if you get pong as answer this mean that your cluster is running.
 
+#### REST API
+
+Authentification
+
+domaine : oauth.iurgence-telecom.fr
+
+POST v1/signin/
+
+request :
+
+{"password" : "122335","email" : "testune@gmail.com"}
+
+resp :
+
+content : json/application
+
+body : {
+
+status : 200 //OK,
+
+token : bearer_token
+
+}
+
+on error :
+
+content : json/application
+
+body
+
+{
+    "id": "Invalid_password_format",
+    "status": 400,
+    "title": "Bad Request",
+    "detail": "Password format is invalid. Too short."
+}
+
+POST v1/signup/
+
+request :
+
+{"password" : "122335","email" : "testune@gmail.com"}
+
+resp :
+
+content : json/application
+
+body : {
+
+status : 200 //OK,
+
+token : bearer_token
+
+}
+
+on error :
+
+Header :
+
+content : json/application
+
+body
+
+{     "id": "Invalid_password_format",     
+
+"status": 400,     "
+
+title": "Bad Request",     
+
+"detail": "Password format is invalid. Too short."
+
+}
+
+
+
+
 ## Launsh 
 
 Afin de lancer le serveur il faut :
