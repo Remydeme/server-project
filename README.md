@@ -130,24 +130,24 @@ Afin de lancer le serveur il faut :
 
 
 
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-    name: servicego
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+        name: servicego
 
-spec:
- replicas: 2
- selector:
-  matchLabels:
-   app: servicego
- template:
-  metadata:
-   labels:
-    app: servicego
-  spec:
-   containers:
-   - name: servicego
-     image: falconr/user-microservice
+    spec:
+     replicas: 2
+     selector:
+      matchLabels:
+       app: servicego
+     template:
+      metadata:
+       labels:
+        app: servicego
+      spec:
+       containers:
+       - name: servicego
+         image: falconr/user-microservice
 
 
 
@@ -159,55 +159,55 @@ Notre image falconr/user-microservice correspond à une image que nous avons com
 
 ---
 
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: nginx
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: nginx
-  template:
-      metadata:
-        labels:
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: nginx
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
           app: nginx
-      spec:
-        containers:
-        - name: nginx
-          image: falconr/nginx-http2
+      template:
+          metadata:
+            labels:
+              app: nginx
+          spec:
+            containers:
+            - name: nginx
+              image: falconr/nginx-http2
 
 
 Notre micro-service Nginx dont le rôle est de servir de reverse proxy est en un replicas. Nous utilisons l'image falconr/nginx-http2. 
 
 ---
 
-apiVersion: apps/v1
-kind: Deployment
-metadata:
- name: mangodb 
-spec:
- replicas: 1
- selector:
-  matchLabels:
-   app: mongodb
- template:
-   metadata:
-    labels:
-     app: mongodb
-   spec:
-    containers:
-    - name: mongodb
-      image: mongo:3.6-jessie
-     # we want to persist the database storage on the disk by mounting the /data/db file on our local disk 
-      volumeMounts:
-      - name: mongodb-persistent-storage
-        mountPath: /data/db
-    volumes: # the volume describtion on our local disk 
-    - name: mongodb-persistent-storage
-    # pointing on the describtion of the volume 
-      persistentVolumeClaim:
-         claimName: mongo-pv
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+     name: mangodb 
+    spec:
+     replicas: 1
+     selector:
+      matchLabels:
+       app: mongodb
+     template:
+       metadata:
+        labels:
+         app: mongodb
+       spec:
+        containers:
+        - name: mongodb
+          image: mongo:3.6-jessie
+         # we want to persist the database storage on the disk by mounting the /data/db file on our local disk 
+          volumeMounts:
+          - name: mongodb-persistent-storage
+            mountPath: /data/db
+        volumes: # the volume describtion on our local disk 
+        - name: mongodb-persistent-storage
+        # pointing on the describtion of the volume 
+          persistentVolumeClaim:
+             claimName: mongo-pv
 
 
 Il y a également un seul noeud de notre serveur mongoDB. On utilise une image public mongoDB. Le volume mongoDB est configuré pour Amazon web service et non pour fonctionner en local.  
