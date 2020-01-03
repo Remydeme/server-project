@@ -22,60 +22,74 @@ if you get pong as answer this mean that your cluster is running.
 
 #### REST API
 
-Authentification
+##### Authentification
 
-domaine : oauth.iurgence-telecom.fr
+domaine : clusterip:30080
+
+
 
 POST v1/signin/
 
-request :
+- request :
 
 {"password" : "122335","email" : "testune@gmail.com"}
 
-resp :
 
-content : json/application
 
-body : {
 
-status : 200 //OK,
+* resp :
 
-token : bearer_token
+                content : json/application
 
-}
+                body : {
 
-on error :
+                        status : 200 //OK,
 
-content : json/application
+                        token : bearer_token
+
+                }
+
+
+* on error :
+
+- content : json/application
 
 body
 
-{
-    "id": "Invalid_password_format",
-    "status": 400,
-    "title": "Bad Request",
-    "detail": "Password format is invalid. Too short."
-}
+            {
+                "id": "Invalid_password_format",
+                "status": 400,
+                "title": "Bad Request",
+                "detail": "Password format is invalid. Too short."
+            }
+
+
+
 
 POST v1/signup/
 
-request :
+- request :
 
-{"password" : "122335","email" : "testune@gmail.com"}
+        {
+            "password" : "122335","
+            email" : "testune@gmail.com"
 
-resp :
+        }
 
-content : json/application
+- resp :
 
-body : {
+        content : json/application
 
-status : 200 //OK,
+        body : {
 
-token : bearer_token
+            status : 200 //OK,
 
-}
+            token : bearer_token
 
-on error :
+        }
+
+
+- on error :
 
 Header :
 
@@ -83,15 +97,16 @@ content : json/application
 
 body
 
-{     "id": "Invalid_password_format",     
+        {     
+            "id": "Invalid_password_format",     
 
-"status": 400,     "
+            "status": 400,     "
 
-title": "Bad Request",     
+            title": "Bad Request",     
 
-"detail": "Password format is invalid. Too short."
+            "detail": "Password format is invalid. Too short."
 
-}
+        }
 
 
 
